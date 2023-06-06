@@ -22,6 +22,7 @@ body {
   height: 20rem;
   width: 40rem;
   overflow-y: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -33,6 +34,7 @@ body {
 .user {
   display: grid;
   width: 100%;
+  margin: 0.4rem;
   grid-template-rows: 100px;
   grid-template-columns: 100px 1fr 100px;
   align-items: center;
@@ -44,7 +46,9 @@ body {
   width: 80px;
   justify-self: center;
   align-self: center;
-  background: rgb(107, 104, 104);
+  background-image: url(./user_318-159711.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 .user__infos {
