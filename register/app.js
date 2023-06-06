@@ -11,9 +11,8 @@ async function sendDatas(e) {
     lastNameInput.value !== "" &&
     passwordInput.value !== ""
   ) {
-    
+
     let newUser = {
-      id: 1,
       name: nameInput.value,
       lname: lastNameInput.value,
       password: passwordInput.value,
