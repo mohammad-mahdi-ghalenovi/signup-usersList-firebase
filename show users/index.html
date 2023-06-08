@@ -10,7 +10,7 @@
   <body>
     <div class="users-container"></div>
 
-    <div class="delete-modal">
+    <div class="delete-modal modal">
       <h3 class="delete__title">Are sure to Delete this user ?</h3>
       <div class="delete-buttons">
         <button onclick="deleteUser()">Yes</button>
@@ -18,14 +18,14 @@
       </div>
     </div>
 
-    <div class="delete-modal">
-      <input type="text" class="edit-inputs" placeholder="Name" />
-      <input type="text" class="edit-inputs" placeholder="Lname" />
-      <input type="text" class="edit-inputs" placeh older="Password" />
+    <div class="edit-modal modal">
+      <input type="text" class="edit-inputs name" placeholder="Name" />
+      <input type="text" class="edit-inputs lname" placeholder="Lname" />
+      <input type="text" class="edit-inputs password" placeholder="Password" />
 
       <div class="delete-buttons">
-        <button onclick="deleteUser()">Yes</button>
-        <button onclick="closeModal()">No</button>
+        <button onclick="editUser()">Submit</button>
+        <button onclick="closeModal()">Cancel</button>
       </div>
     </div>
 

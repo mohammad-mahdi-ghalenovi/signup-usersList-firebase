@@ -1,6 +1,9 @@
 const usersContainerElem = document.querySelector(".users-container");
 const deleteModalElem = document.querySelector(".delete-modal");
 const editModalElem = document.querySelector(".edit-modal");
+const nameInput = document.querySelector(".edit-modal .name");
+const lnameInput = document.querySelector(".edit-modal .lname");
+const passwordInput = document.querySelector(".edit-modal .password");
 let allUsers;
 let userID = null;
 
@@ -34,9 +37,10 @@ function getDatas() {
           );
         });
       }
-      
     });
 }
+
+// open and close modal
 
 function showDeleteModal(id) {
   userID = id;
@@ -45,7 +49,10 @@ function showDeleteModal(id) {
 
 function closeModal() {
   deleteModalElem.classList.remove("visible");
+  editModalElem.classList.remove("visible");
 }
+
+// Delete And Edit
 
 async function deleteUser() {
   await fetch(
@@ -65,7 +72,37 @@ async function deleteUser() {
 
 function showEditModal(id) {
   userID = id;
-  // editModalElem
+  editModalElem.classList.add("visible");
+}
+
+async function editUser() {
+
+  let editedUser = {
+    name: nameInput.value,
+    lname: lnameInput.value,
+    password: passwordInput.value,
+  };
+
+  await fetch(
+    `https://login-page1-1ccde-default-rtdb.firebaseio.com/user/${userID}.json`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(editedUser),
+    }
+  )
+    .then((data) => {
+      return data.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      getDatas();
+      closeModal();
+    });
+    
 }
 
 window.addEventListener("load", () => {
