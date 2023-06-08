@@ -9,28 +9,30 @@ function getDatas() {
     .then((data) => {
       allUsers = data;
 
-      allUsers = Object.entries(allUsers);
+      if (allUsers) {
+        allUsers = Object.entries(allUsers);
 
-      usersContainerElem.innerHTML = "";
+        usersContainerElem.innerHTML = "";
 
-      allUsers.forEach((item) => {
-        usersContainerElem.insertAdjacentHTML(
-          "beforeend",
+        allUsers.forEach((item) => {
+          usersContainerElem.insertAdjacentHTML(
+            "beforeend",
+            `
+          <div class="user">
+          <div class="user__img"></div>
+          <div class="user__infos">
+            <div class="user__name">${item[1].name} - ${item[1].lname}</div>
+            <div class="user__password">Your password : ${item[1].password}</div>
+          </div>
+          <div class="user__buttons">
+            <button class="user__delete" onclick="showDeleteModal('${item[0]}')">Delete</button>
+            <button class="user__edit" onclick="showEditModal('${item[0]}')">Edit</button>
+          </div>
+        </div>
           `
-        <div class="user">
-        <div class="user__img"></div>
-        <div class="user__infos">
-          <div class="user__name">${item[1].name} - ${item[1].lname}</div>
-          <div class="user__password">Your password : ${item[1].password}</div>
-        </div>
-        <div class="user__buttons">
-          <button class="user__delete" onclick="showDeleteModal('${item[0]}')">Delete</button>
-          <button class="user__edit">Edit</button>
-        </div>
-      </div>
-        `
-        );
-      });
+          );
+        });
+      }
     });
 }
 
@@ -55,6 +57,11 @@ async function deleteUser() {
 
   getDatas();
   closeModal();
+}
+
+function showEditModal(id) {
+  userID = id;
+  console.log(userID);
 }
 
 window.addEventListener("load", () => {
