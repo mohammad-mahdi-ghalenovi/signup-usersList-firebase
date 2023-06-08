@@ -2,14 +2,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Advent Pro";
 }
 
 body {
-  background-image: url(imgs/mlr6copulto71.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background-image: url(imgs/mlr6copulto71.jpg); */
+  /* background-position: center; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  background-color: #151619;
   height: 100vh;
   overflow: hidden;
 }
@@ -24,7 +25,8 @@ body {
   width: 40%;
   left: 0;
   height: 100vh;
-  background: #00000059;
+  /* background: #00000059; */
+  background-color: #0a090a;
   backdrop-filter: blur(7px);
 }
 
@@ -40,7 +42,7 @@ form input {
   padding: 12px;
   border-radius: 5px;
   border: none;
-  background: #a4a4a439;
+  background: #212022;
   color: white;
 }
 
@@ -54,7 +56,6 @@ form input::placeholder {
 
 .form-title {
   color: white;
-  font-family: "Mali Light", "Montserrat Alternates";
   font-size: 45px;
   padding: 20px;
 }
@@ -69,10 +70,13 @@ form input::placeholder {
   align-self: center;
   margin: 2rem;
   color: #000;
-  background: white;
+  background-color: #5500ff;
+  font-family: "Segoe UI";
+  color: white;
   border-radius: 30px;
   padding: 12px 10px;
   width: 115px;
+  font-size: 12px;
   border: none;
   font-weight: bold;
   cursor: pointer;
@@ -86,17 +90,22 @@ form input::placeholder {
 
 .submit-btn i {
   position: absolute;
+  height: 20px;
+  width: 20px;
   right: 15px;
-  padding-right: 5px;
+  background-image: url("https://img.icons8.com/ios/30/000000/arrow--v1.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .help {
+  font-family: "Segoe UI";
   color: white;
 }
 
 .help a {
   text-decoration: none;
-  color: white;
+  color: #5500ff;
   font-weight: normal;
 }
 
