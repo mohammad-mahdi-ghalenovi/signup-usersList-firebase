@@ -1,5 +1,6 @@
 const usersContainerElem = document.querySelector(".users-container");
 const deleteModalElem = document.querySelector(".delete-modal");
+const editModalElem = document.querySelector(".edit-modal");
 let allUsers;
 let userID = null;
 
@@ -9,10 +10,10 @@ function getDatas() {
     .then((data) => {
       allUsers = data;
 
+      usersContainerElem.innerHTML = "";
+
       if (allUsers) {
         allUsers = Object.entries(allUsers);
-
-        usersContainerElem.innerHTML = "";
 
         allUsers.forEach((item) => {
           usersContainerElem.insertAdjacentHTML(
@@ -33,6 +34,7 @@ function getDatas() {
           );
         });
       }
+      
     });
 }
 
@@ -52,7 +54,9 @@ async function deleteUser() {
       method: "DELETE",
     }
   )
-    .then((response) => console.log(response))
+    .then((response) => {
+      console.log(response);
+    })
     .catch((err) => console.log(err));
 
   getDatas();
@@ -61,7 +65,7 @@ async function deleteUser() {
 
 function showEditModal(id) {
   userID = id;
-  console.log(userID);
+  // editModalElem
 }
 
 window.addEventListener("load", () => {
